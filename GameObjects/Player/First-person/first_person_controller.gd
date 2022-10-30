@@ -9,7 +9,7 @@ extends CharacterBody3D
 @onready var head:Node3D = $Head
 @onready var interaction_ray:RayCast3D = $Head/Camera3D/InteractionRay
 
-var interactable_target:RigidBody3D = null
+var interactable_target:Interactable3D = null
 var toggle_interaction:bool = false
 
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
@@ -31,25 +31,19 @@ func _input(event):
 		if toggle_interaction:
 			toggle_interaction = false
 		else:
-			if interaction_ray.is_colliding():
-				if interaction_ray.get_collider().is_in_group("interactable"):
-					toggle_interaction = true
-					interactable_target = interaction_ray.get_collider()
+			if interaction_ray.is_colliding() and interaction_ray.get_collider().is_in_group("interactable"):
+				toggle_interaction = true
+				interactable_target = interaction_ray.get_collider()
 
 func _process(delta):
 	if interactable_target != null:
 		if toggle_interaction:
-			interactable_target.freeze = true
-			interactable_target.get_child(1).disabled = true
-			if interaction_ray.is_colliding() and not interaction_ray.get_collider().is_in_group("interactable"):
-				interactable_target.global_position = interaction_ray.get_collision_point() + Vector3(0, 0.45, 0)
-			else:
-				interaction_ray.target_position.z = -3.0
-				interactable_target.global_position = interaction_ray.to_global(interaction_ray.target_position)
+			interaction_ray.target_position.z = -3.0
+			interactable_target._interact(interaction_ray)
+			
 		else:
+			interactable_target._interact()
 			interaction_ray.target_position.z = -5.0
-			interactable_target.freeze = false
-			interactable_target.get_child(1).disabled = false
 			interactable_target = null
 
 func _physics_process(delta):

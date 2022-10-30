@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bk5wrnc3suau5"]
+
+[ext_resource type="Script" path="res://GameObjects/Classes/interactable.gd" id="1_x037j"]
+
+[node name="Interactable" type="RigidBody3D" groups=["interactable"]]
+script = ExtResource("1_x037j")

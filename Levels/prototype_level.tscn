@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://c7d7f8was1kk0"]
+[gd_scene load_steps=11 format=3 uid="uid://c7d7f8was1kk0"]
 
 [ext_resource type="PackedScene" uid="uid://x23evg82rioy" path="res://GameObjects/Player/First-person/first_person_player.tscn" id="1_0fqcv"]
 [ext_resource type="Material" uid="uid://ddebbbmi6u8h3" path="res://Assets/Visual/Hexaglow/Material/hexaglow.material" id="1_gm257"]
+[ext_resource type="Script" path="res://GameObjects/Classes/interactable.gd" id="3_e15np"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m62ay"]
 albedo_color = Color(0, 0, 0, 1)
@@ -18,8 +19,10 @@ sky_material = SubResource("PhysicalSkyMaterial_cjygb")
 background_mode = 2
 sky = SubResource("Sky_5vr8i")
 ambient_light_source = 3
+ambient_light_color = Color(0.745098, 0.745098, 0.745098, 1)
+ambient_light_sky_contribution = 0.44
 tonemap_mode = 3
-tonemap_white = 4.0
+tonemap_white = 2.0
 ssr_enabled = true
 ssao_enabled = true
 ssil_enabled = true
@@ -60,7 +63,7 @@ walk_speed = 6.5
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.658902, 0.752224, 0.00276174, -0.418344, 0.363388, 0.832429, 0.625169, -0.549644, 0.554125, 0, 5.72763, 0)
-light_energy = 1.3
+light_energy = 2.0
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -70,6 +73,7 @@ environment = SubResource("Environment_eancj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.82752, 1.47306, 0)
 mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_vj6nc")
+script = ExtResource("3_e15np")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Interactable"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)

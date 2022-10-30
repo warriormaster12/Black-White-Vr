@@ -8,6 +8,16 @@
 
 config_version=5
 
+_global_script_classes=[{
+"base": "RigidBody3D",
+"class": &"Interactable3D",
+"language": &"GDScript",
+"path": "res://GameObjects/Classes/interactable.gd"
+}]
+_global_script_class_icons={
+"Interactable3D": ""
+}
+
 [application]
 
 config/name="Black&White"
