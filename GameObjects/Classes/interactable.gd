@@ -24,3 +24,13 @@ func _interact(target:RayCast3D = null):
 	else:
 		freeze = false
 		collision.disabled = false
+
+func _interact_vr(target:XRController3D):
+	if target: 
+		freeze = true
+		collision.disabled = true
+		global_position = target.global_position
+		global_rotation = target.global_rotation
+	else:
+		freeze = false
+		collision.disabled = false

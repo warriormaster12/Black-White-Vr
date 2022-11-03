@@ -1,45 +1,48 @@
 [gd_scene load_steps=11 format=3 uid="uid://c7d7f8was1kk0"]
 
-[ext_resource type="PackedScene" uid="uid://x23evg82rioy" path="res://GameObjects/Player/First-person/first_person_player.tscn" id="1_0fqcv"]
+[ext_resource type="Material" uid="uid://ddebbbmi6u8h3" path="res://Assets/Visual/Hexaglow/Material/hexaglow.material" id="1_gm257"]
+[ext_resource type="PackedScene" uid="uid://diosy1b64h0mh" path="res://GameObjects/Player/VR/vr_player.tscn" id="3_02bmt"]
 [ext_resource type="Script" path="res://GameObjects/Classes/interactable.gd" id="3_e15np"]
-[ext_resource type="PackedScene" uid="uid://duln0plcvti1p" path="res://levuv_3.tscn" id="3_gpjfv"]
-[ext_resource type="PackedScene" uid="uid://mbviudb6wgpc" path="res://roskisv_2.tscn" id="4_rv4yo"]
 
-[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_cjygb"]
-rayleigh_color = Color(0.278431, 0.556863, 0.752941, 1)
-ground_color = Color(0.478431, 0.72549, 1, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m62ay"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 0.54
 
-[sub_resource type="Sky" id="Sky_5vr8i"]
-sky_material = SubResource("PhysicalSkyMaterial_cjygb")
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_criej"]
 
-[sub_resource type="Environment" id="Environment_eancj"]
+[sub_resource type="Sky" id="Sky_ma4fx"]
+sky_material = SubResource("ProceduralSkyMaterial_criej")
+
+[sub_resource type="Environment" id="Environment_732jt"]
 background_mode = 2
-sky = SubResource("Sky_5vr8i")
-ambient_light_source = 3
-ambient_light_color = Color(0.745098, 0.745098, 0.745098, 1)
-ambient_light_sky_contribution = 0.44
-tonemap_mode = 3
-tonemap_white = 2.0
-ssr_enabled = true
-ssao_enabled = true
-ssil_enabled = true
-glow_enabled = true
-volumetric_fog_detail_spread = 3.95853
-volumetric_fog_sky_affect = 0.01
+sky = SubResource("Sky_ma4fx")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vj6nc"]
 friction = 0.3
 bounce = 0.3
 
-[sub_resource type="SphereMesh" id="SphereMesh_wg53b"]
+[sub_resource type="PrismMesh" id="PrismMesh_yt0pd"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_pb026"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jvvuw"]
+points = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [node name="PrototypeLevel" type="Node3D"]
 
-[node name="First-person-Player" parent="." instance=ExtResource("1_0fqcv")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.245819, 2.61882, -4.65099)
-walk_speed = 6.5
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+size = Vector3(30, 0.2, 30)
+material = ExtResource("1_gm257")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.596048, 0)
+size = Vector3(3, 1, 3)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.44103, 0.596048, 0)
+size = Vector3(3, 1, 3)
+material = SubResource("StandardMaterial3D_m62ay")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.658902, 0.752224, 0.00276174, -0.418344, 0.363388, 0.832429, 0.625169, -0.549644, 0.554125, 0, 5.72763, 0)
@@ -47,55 +50,20 @@ light_energy = 2.0
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_eancj")
+environment = SubResource("Environment_732jt")
 
-[node name="Roska1" type="RigidBody3D" parent="." groups=["interactable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00917804, 0.977753, 2.25153)
+[node name="Interactable" type="RigidBody3D" parent="." groups=["interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.82752, 1.47306, 0)
 mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_vj6nc")
 script = ExtResource("3_e15np")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Roska1"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interactable"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-mesh = SubResource("SphereMesh_wg53b")
+mesh = SubResource("PrismMesh_yt0pd")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Roska1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-shape = SubResource("SphereShape3D_pb026")
+shape = SubResource("ConvexPolygonShape3D_jvvuw")
 
-[node name="Roska2" type="RigidBody3D" parent="." groups=["interactable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.637771, 0.977753, 2.25153)
-mass = 0.1
-physics_material_override = SubResource("PhysicsMaterial_vj6nc")
-script = ExtResource("3_e15np")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Roska2"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-mesh = SubResource("SphereMesh_wg53b")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Roska2"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-shape = SubResource("SphereShape3D_pb026")
-
-[node name="Roska3" type="RigidBody3D" parent="." groups=["interactable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701914, 0.977753, 2.25153)
-mass = 0.1
-physics_material_override = SubResource("PhysicsMaterial_vj6nc")
-script = ExtResource("3_e15np")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Roska3"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-mesh = SubResource("SphereMesh_wg53b")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Roska3"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-shape = SubResource("SphereShape3D_pb026")
-
-[node name="Ground" type="Node3D" parent="."]
-
-[node name="Levuv3" parent="Ground" instance=ExtResource("3_gpjfv")]
-
-[node name="Roskis" type="Node3D" parent="."]
-
-[node name="Roskisv2" parent="Roskis" instance=ExtResource("4_rv4yo")]
-transform = Transform3D(1.5, 0, 0, 0, 1.25, 0, 0, 0, 1.5, 2.1827, 0.588402, 1.11943)
+[node name="VRPlayer" parent="." instance=ExtResource("3_02bmt")]
