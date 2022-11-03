@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://x23evg82rioy" path="res://GameObjects/Player/First-person/first_person_player.tscn" id="1_0fqcv"]
 [ext_resource type="Script" path="res://GameObjects/Classes/interactable.gd" id="3_e15np"]
-[ext_resource type="PackedScene" uid="uid://lh5mgqyugj7a" path="res://testilevu.tscn" id="3_riglo"]
+[ext_resource type="PackedScene" uid="uid://duln0plcvti1p" path="res://levuv_3.tscn" id="3_gpjfv"]
 [ext_resource type="PackedScene" uid="uid://mbviudb6wgpc" path="res://roskisv_2.tscn" id="4_rv4yo"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_cjygb"]
@@ -31,15 +31,14 @@ volumetric_fog_sky_affect = 0.01
 friction = 0.3
 bounce = 0.3
 
-[sub_resource type="PrismMesh" id="PrismMesh_yt0pd"]
+[sub_resource type="SphereMesh" id="SphereMesh_wg53b"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jvvuw"]
-points = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+[sub_resource type="SphereShape3D" id="SphereShape3D_pb026"]
 
 [node name="PrototypeLevel" type="Node3D"]
 
 [node name="First-person-Player" parent="." instance=ExtResource("1_0fqcv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.98347, 6.97481)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.245819, 2.61882, -4.65099)
 walk_speed = 6.5
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -50,25 +49,53 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_eancj")
 
-[node name="Interactable" type="RigidBody3D" parent="." groups=["interactable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.67394, 1.47306, 0)
+[node name="Roska1" type="RigidBody3D" parent="." groups=["interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00917804, 0.977753, 2.25153)
 mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_vj6nc")
 script = ExtResource("3_e15np")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Interactable"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Roska1"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-mesh = SubResource("PrismMesh_yt0pd")
+mesh = SubResource("SphereMesh_wg53b")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Roska1"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_jvvuw")
+shape = SubResource("SphereShape3D_pb026")
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="Roska2" type="RigidBody3D" parent="." groups=["interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.637771, 0.977753, 2.25153)
+mass = 0.1
+physics_material_override = SubResource("PhysicsMaterial_vj6nc")
+script = ExtResource("3_e15np")
 
-[node name="testilevu" parent="Node3D" instance=ExtResource("3_riglo")]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Roska2"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+mesh = SubResource("SphereMesh_wg53b")
 
-[node name="Node3D2" type="Node3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Roska2"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+shape = SubResource("SphereShape3D_pb026")
 
-[node name="Roskisv2" parent="Node3D2" instance=ExtResource("4_rv4yo")]
-transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -1.82695, 0.964731, -0.201435)
+[node name="Roska3" type="RigidBody3D" parent="." groups=["interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701914, 0.977753, 2.25153)
+mass = 0.1
+physics_material_override = SubResource("PhysicsMaterial_vj6nc")
+script = ExtResource("3_e15np")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Roska3"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+mesh = SubResource("SphereMesh_wg53b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Roska3"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+shape = SubResource("SphereShape3D_pb026")
+
+[node name="Ground" type="Node3D" parent="."]
+
+[node name="Levuv3" parent="Ground" instance=ExtResource("3_gpjfv")]
+
+[node name="Roskis" type="Node3D" parent="."]
+
+[node name="Roskisv2" parent="Roskis" instance=ExtResource("4_rv4yo")]
+transform = Transform3D(1.5, 0, 0, 0, 1.25, 0, 0, 0, 1.5, 2.1827, 0.588402, 1.11943)
