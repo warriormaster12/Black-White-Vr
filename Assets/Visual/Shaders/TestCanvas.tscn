@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxgucu2w3lcny"]
+
+[ext_resource type="Shader" uid="uid://h8kcqvu2qgi3" path="res://Assets/Visual/Shaders/eye_blink.tres" id="1_lckok"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wffc5"]
+shader = ExtResource("1_lckok")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_wffc5")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -9,6 +9,8 @@ var interacting:bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if !GameInstance.get("vrInterfaceFound"):
+		queue_free()
 	$RightHand/FunctionTeleport.visible = true
 	$LeftHand/FunctionTeleport.visible = true
 

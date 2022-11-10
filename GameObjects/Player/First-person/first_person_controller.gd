@@ -16,6 +16,8 @@ var toggle_interaction:bool = false
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
+	if GameInstance.get("vrInterfaceFound"):
+		queue_free()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	interaction_ray.add_exception(self)
 

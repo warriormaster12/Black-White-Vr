@@ -15,6 +15,7 @@ script = ExtResource("1_v1t7t")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="."]
 current = true
+fov = 90.0
 
 [node name="LeftHand" type="XRController3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.844, 0, -0.6)

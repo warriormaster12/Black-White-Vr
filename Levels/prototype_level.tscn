@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7d7f8was1kk0"]
+[gd_scene load_steps=12 format=3 uid="uid://c7d7f8was1kk0"]
 
 [ext_resource type="Material" uid="uid://ddebbbmi6u8h3" path="res://Assets/Visual/Hexaglow/Material/hexaglow.material" id="1_gm257"]
 [ext_resource type="PackedScene" uid="uid://diosy1b64h0mh" path="res://GameObjects/Player/VR/vr_player.tscn" id="3_02bmt"]
 [ext_resource type="Script" path="res://GameObjects/Classes/interactable.gd" id="3_e15np"]
+[ext_resource type="PackedScene" uid="uid://x23evg82rioy" path="res://GameObjects/Player/First-person/first_person_player.tscn" id="4_ip00u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m62ay"]
 albedo_color = Color(0, 0, 0, 1)
@@ -67,3 +68,6 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_jvvuw")
 
 [node name="VRPlayer" parent="." instance=ExtResource("3_02bmt")]
+
+[node name="First-person-Player" parent="." instance=ExtResource("4_ip00u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.98518, 8.73391)
