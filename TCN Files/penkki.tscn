@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://8ge73625xttl"]
+
+[ext_resource type="PackedScene" uid="uid://bwq5vhgnsg2gq" path="res://GLB files/Scene 1/Penkki.glb" id="1_6w18u"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0vrsf"]
+points = PackedVector3Array(-1.61901, 0.684556, -6.8102, 3.20239, -0.191898, 6.99749, 2.98313, 0.026915, 6.7778, -2.93459, -0.630425, 6.99749, 2.10607, -0.849689, -6.8102, -2.93459, -0.630425, -6.8102, -1.61901, 0.684556, 6.7778, 2.98313, 0.026915, -6.37218, 1.88681, -0.849689, 6.99749, -0.0847629, 0.684556, -7.02989, -0.0847629, 0.684556, 6.99749, 3.20239, -0.411312, -7.02989, -2.93459, -0.411312, 6.99749, 0.79109, -0.849689, -6.8102, 3.20239, -0.411312, 6.99749, -2.93459, -0.411312, -6.8102, 0.79109, -0.849689, 6.99749, 2.10607, -0.849689, 6.5581, 3.20239, -0.191898, -7.02989, -1.61901, 0.026915, -7.02989, 0.352563, -0.411312, -7.02989, 2.76386, 0.026915, -7.02989, -0.961817, 0.684556, 6.99749, -0.961817, 0.684556, -7.02989, 2.76386, 0.026915, 6.99749)
+
+[node name="Penkki" instance=ExtResource("1_6w18u")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube003" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube003/StaticBody3D" index="0"]
+transform = Transform3D(1, 2.38419e-07, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_0vrsf")

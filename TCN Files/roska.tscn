@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7hhnder22css"]
+
+[ext_resource type="PackedScene" uid="uid://vvmaoax21nmk" path="res://GLB files/Scene 1/Roska.glb" id="1_mcddc"]
+
+[node name="Roska" instance=ExtResource("1_mcddc")]
