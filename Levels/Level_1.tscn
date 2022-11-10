@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c7d7f8was1kk0"]
+[gd_scene load_steps=13 format=3 uid="uid://c7d7f8was1kk0"]
 
 [ext_resource type="PackedScene" uid="uid://c7hhnder22css" path="res://TCN Files/roska.tscn" id="2_jxql8"]
 [ext_resource type="PackedScene" uid="uid://cg3cdcillcpds" path="res://TCN Files/levu_scene_1.tscn" id="3_8ebgp"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://oe3jg2t0prfx" path="res://TCN Files/viemäri_kansi.tscn" id="6_7ubg6"]
 [ext_resource type="PackedScene" uid="uid://c7viq8k4skxmv" path="res://TCN Files/roskis.tscn" id="7_6bxnw"]
 [ext_resource type="PackedScene" uid="uid://x23evg82rioy" path="res://GameObjects/Player/First-person/first_person_player.tscn" id="7_tn03s"]
+[ext_resource type="PackedScene" uid="uid://diosy1b64h0mh" path="res://GameObjects/Player/VR/vr_player.tscn" id="9_85yc2"]
 
 [sub_resource type="Environment" id="Environment_732jt"]
 background_mode = 1
@@ -44,7 +45,7 @@ spot_angle = 32.32
 environment = SubResource("Environment_732jt")
 
 [node name="Interactable5" type="RigidBody3D" parent="." groups=["interactable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87075, -2.6544, 3.42109)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87075, 0.556901, 3.42109)
 mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_vj6nc")
 script = ExtResource("3_e15np")
@@ -57,7 +58,7 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 shape = SubResource("SphereShape3D_jyr4n")
 
 [node name="Interactable4" type="RigidBody3D" parent="." groups=["interactable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.28081, -2.89283, 2.98552)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.28081, 0.318471, 2.98552)
 mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_vj6nc")
 script = ExtResource("3_e15np")
@@ -70,7 +71,7 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 shape = SubResource("SphereShape3D_jyr4n")
 
 [node name="Interactable3" type="RigidBody3D" parent="." groups=["interactable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.797612, -2.4747, 4.93972)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.797612, 0.736601, 4.93972)
 mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_vj6nc")
 script = ExtResource("3_e15np")
@@ -83,7 +84,7 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 shape = SubResource("SphereShape3D_jyr4n")
 
 [node name="Interactable2" type="RigidBody3D" parent="." groups=["interactable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.699461, -2.36226, 3.49694)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.699461, 0.849041, 3.49694)
 mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_vj6nc")
 script = ExtResource("3_e15np")
@@ -96,7 +97,7 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 shape = SubResource("SphereShape3D_jyr4n")
 
 [node name="Interactable" type="RigidBody3D" parent="." groups=["interactable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60919, -2.02607, 2.36701)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60919, 1.18523, 2.36701)
 mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_vj6nc")
 script = ExtResource("3_e15np")
@@ -109,7 +110,6 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 shape = SubResource("SphereShape3D_jyr4n")
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.49913, 0)
 
 [node name="Levu scene 1" parent="Node3D" instance=ExtResource("3_8ebgp")]
 
@@ -126,4 +126,6 @@ transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, -2.46433, 0.31682, 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.16775, 0.647475, 1.00088)
 
 [node name="First-person-Player" parent="." instance=ExtResource("7_tn03s")]
-transform = Transform3D(-0.999677, 0, 0.0254093, 0, 1, 0, -0.0254093, 0, -0.999677, 0, -1.88145, -2.87442)
+transform = Transform3D(-0.999677, 0, 0.0254093, 0, 1, 0, -0.0254093, 0, -0.999677, 0, 1.64565, -2.874)
+
+[node name="VRPlayer" parent="." instance=ExtResource("9_85yc2")]

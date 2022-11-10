@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://diosy1b64h0mh"]
+[gd_scene load_steps=6 format=3 uid="uid://diosy1b64h0mh"]
 
 [ext_resource type="PackedScene" uid="uid://bkauil4lnirk" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="1_q0fn3"]
 [ext_resource type="Script" path="res://GameObjects/Player/VR/vr_player_controller.gd" id="1_v1t7t"]
+[ext_resource type="Script" path="res://GameObjects/Player/VR/hand_controller.gd" id="2_w3mm6"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_te4ll"]
 size = Vector3(0.2, 0.2, 0.2)
@@ -21,38 +22,35 @@ fov = 90.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.844, 0, -0.6)
 tracker = &"left_hand"
 pose = &"aim"
+script = ExtResource("2_w3mm6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="LeftHand"]
 mesh = SubResource("BoxMesh_te4ll")
-
-[node name="LeftArea3D" type="Area3D" parent="LeftHand/MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftHand/MeshInstance3D/LeftArea3D"]
-shape = SubResource("BoxShape3D_tuors")
 
 [node name="FunctionTeleport" parent="LeftHand" instance=ExtResource("1_q0fn3")]
 visible = false
 camera = NodePath("../../XRCamera3D")
 
+[node name="LeftArea3D" type="Area3D" parent="LeftHand"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftHand/LeftArea3D"]
+shape = SubResource("BoxShape3D_tuors")
+
 [node name="RightHand" type="XRController3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.843924, 0, -0.616488)
 tracker = &"right_hand"
 pose = &"aim"
+script = ExtResource("2_w3mm6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RightHand"]
 mesh = SubResource("BoxMesh_te4ll")
 skeleton = NodePath("../../LeftHand")
 
-[node name="RightArea3D" type="Area3D" parent="RightHand/MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RightHand/MeshInstance3D/RightArea3D"]
-shape = SubResource("BoxShape3D_tuors")
-
 [node name="FunctionTeleport" parent="RightHand" instance=ExtResource("1_q0fn3")]
 visible = false
 camera = NodePath("../../XRCamera3D")
 
-[connection signal="body_entered" from="LeftHand/MeshInstance3D/LeftArea3D" to="." method="_on_left_area_3d_body_entered"]
-[connection signal="body_exited" from="LeftHand/MeshInstance3D/LeftArea3D" to="." method="_on_left_area_3d_body_exited"]
-[connection signal="body_entered" from="RightHand/MeshInstance3D/RightArea3D" to="." method="_on_right_area_3d_body_entered"]
-[connection signal="body_exited" from="RightHand/MeshInstance3D/RightArea3D" to="." method="_on_right_area_3d_body_exited"]
+[node name="RightArea3D" type="Area3D" parent="RightHand"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightHand/RightArea3D"]
+shape = SubResource("BoxShape3D_tuors")
