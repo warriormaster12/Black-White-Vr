@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://b2b07yqqq8ocd"]
+
+[ext_resource type="Texture2D" uid="uid://bqrgvluuun3nm" path="res://Assets/Visual/Particles/default_particle.png" id="1_smr61"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vyl7g"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_color = Color(0.776471, 0.776471, 0.776471, 1)
+albedo_texture = ExtResource("1_smr61")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_bedqm"]
+offsets = PackedFloat32Array(0, 0.353909, 0.703704, 1)
+colors = PackedColorArray(0.0196078, 0.0196078, 0.0196078, 0, 0.707967, 0.707967, 0.707967, 1, 0.646029, 0.646029, 0.646029, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hu2x0"]
+gradient = SubResource("Gradient_bedqm")
+
+[sub_resource type="Curve" id="Curve_vl2f5"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.221804, 1), 0.0, 0.0, 0, 0, Vector2(0.605263, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.481818), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_k1wmp"]
+curve = SubResource("Curve_vl2f5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6jshw"]
+emission_shape = 3
+emission_box_extents = Vector3(7, 7, 7)
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, -1, 0)
+scale_min = 0.05
+scale_max = 0.2
+scale_curve = SubResource("CurveTexture_k1wmp")
+color_ramp = SubResource("GradientTexture1D_hu2x0")
+turbulence_enabled = true
+turbulence_noise_strength = 2.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_0jdj2"]
+
+[node name="GPUParticles3D" type="GPUParticles3D"]
+material_override = SubResource("StandardMaterial3D_vyl7g")
+amount = 32
+lifetime = 2.0
+visibility_aabb = AABB(-8.20636, -8.75686, -7.67914, 16.0794, 16.0752, 15.9803)
+process_material = SubResource("ParticleProcessMaterial_6jshw")
+draw_pass_1 = SubResource("QuadMesh_0jdj2")
