@@ -1,10 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://c7d7f8was1kk0"]
+[gd_scene load_steps=21 format=3 uid="uid://c7d7f8was1kk0"]
 
-[ext_resource type="PackedScene" uid="uid://c7hhnder22css" path="res://TCN Files/roska.tscn" id="2_jxql8"]
+[ext_resource type="PackedScene" uid="uid://fmgll2onj33k" path="res://TCN Files/roskapullo_1.tscn" id="2_v41vf"]
 [ext_resource type="PackedScene" uid="uid://cg3cdcillcpds" path="res://TCN Files/levu_scene_1.tscn" id="3_8ebgp"]
 [ext_resource type="Script" path="res://GameObjects/Classes/interactable.gd" id="3_e15np"]
+[ext_resource type="PackedScene" uid="uid://hcvkqc1cc5f2" path="res://Assets/GLB files/Scene 1/roskapullo2.glb" id="3_lmm0b"]
 [ext_resource type="PackedScene" uid="uid://tmjr77tkoq8y" path="res://TCN Files/low_poly_tree.tscn" id="4_ebl1d"]
+[ext_resource type="PackedScene" uid="uid://cn1ray2wfpbfm" path="res://Assets/GLB files/Scene 1/roskapullo3.glb" id="4_j1op6"]
+[ext_resource type="PackedScene" uid="uid://dul3cphi1qraf" path="res://TCN Files/paperiroska_1.tscn" id="5_ii1tp"]
 [ext_resource type="PackedScene" uid="uid://8ge73625xttl" path="res://TCN Files/penkki.tscn" id="5_so15v"]
+[ext_resource type="PackedScene" uid="uid://diycdctgpqxya" path="res://TCN Files/paperiroska_2.tscn" id="6_1kd18"]
 [ext_resource type="PackedScene" uid="uid://oe3jg2t0prfx" path="res://TCN Files/viemäri_kansi.tscn" id="6_7ubg6"]
 [ext_resource type="PackedScene" uid="uid://c7viq8k4skxmv" path="res://TCN Files/roskis.tscn" id="7_6bxnw"]
 [ext_resource type="PackedScene" uid="uid://x23evg82rioy" path="res://GameObjects/Player/First-person/first_person_player.tscn" id="7_tn03s"]
@@ -21,7 +25,23 @@ ambient_light_energy = 0.0
 friction = 0.3
 bounce = 0.3
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_jyr4n"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fg2st"]
+radius = 0.25
+height = 1.5
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ch2k8"]
+radius = 0.25
+height = 1.5
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4nmi0"]
+radius = 0.25
+height = 1.5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cw5v4"]
+size = Vector3(1.2, 0.2, 1.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v0g7f"]
+size = Vector3(1, 0.25, 1.3)
 
 [node name="PrototypeLevel" type="Node3D"]
 
@@ -45,43 +65,43 @@ spot_angle = 32.32
 environment = SubResource("Environment_732jt")
 
 [node name="Interactable5" type="RigidBody3D" parent="." groups=["interactable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87075, 0.556901, 3.42109)
+transform = Transform3D(-0.483833, 0.875161, 0, -0.875161, -0.483833, 0, 0, 0, 1, 2.34279, 1.62158, 3.48122)
 mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_vj6nc")
 script = ExtResource("3_e15np")
-
-[node name="Roska" parent="Interactable5" instance=ExtResource("2_jxql8")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable5"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-shape = SubResource("SphereShape3D_jyr4n")
+transform = Transform3D(0.4, -1.19209e-07, 0, 1.19209e-07, 0.4, 0, 0, 0, 0.4, -0.00413227, -0.269939, 0)
+shape = SubResource("CapsuleShape3D_fg2st")
+
+[node name="roskapullo1" parent="Interactable5" instance=ExtResource("2_v41vf")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
 [node name="Interactable4" type="RigidBody3D" parent="." groups=["interactable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.28081, 0.318471, 2.98552)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.28081, 0.811782, 2.98552)
 mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_vj6nc")
 script = ExtResource("3_e15np")
-
-[node name="Roska" parent="Interactable4" instance=ExtResource("2_jxql8")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable4"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-shape = SubResource("SphereShape3D_jyr4n")
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.00624871, -0.262867, 0)
+shape = SubResource("CapsuleShape3D_ch2k8")
+
+[node name="roskapullo2" parent="Interactable4" instance=ExtResource("3_lmm0b")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
 [node name="Interactable3" type="RigidBody3D" parent="." groups=["interactable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.797612, 0.736601, 4.93972)
+transform = Transform3D(0.580277, -0.814419, 0, 0.814419, 0.580277, 0, 0, 0, 1, 0.797612, 1.10291, 4.1438)
 mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_vj6nc")
 script = ExtResource("3_e15np")
 
-[node name="Roska" parent="Interactable3" instance=ExtResource("2_jxql8")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable3"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-shape = SubResource("SphereShape3D_jyr4n")
+transform = Transform3D(0.397168, 0.0475141, 0, -0.0475141, 0.397168, 0, 0, 0, 0.4, 0.0113238, -0.286339, 0)
+shape = SubResource("CapsuleShape3D_4nmi0")
+
+[node name="roskapullo3" parent="Interactable3" instance=ExtResource("4_j1op6")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
 [node name="Interactable2" type="RigidBody3D" parent="." groups=["interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.699461, 0.849041, 3.49694)
@@ -89,12 +109,12 @@ mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_vj6nc")
 script = ExtResource("3_e15np")
 
-[node name="Roska" parent="Interactable2" instance=ExtResource("2_jxql8")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable2"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-shape = SubResource("SphereShape3D_jyr4n")
+transform = Transform3D(0.352052, -0.474734, 0, 0.189893, 0.88013, 0, 0, 0, 0.4, 0.0313128, 0.186971, -0.19468)
+shape = SubResource("BoxShape3D_cw5v4")
+
+[node name="paperiroska1" parent="Interactable2" instance=ExtResource("5_ii1tp")]
+transform = Transform3D(8, 0, 0, 0, 12, 0, 0, 0, 8, 0, -0.291324, 0)
 
 [node name="Interactable" type="RigidBody3D" parent="." groups=["interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60919, 1.18523, 2.36701)
@@ -102,12 +122,12 @@ mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_vj6nc")
 script = ExtResource("3_e15np")
 
-[node name="Roska" parent="Interactable" instance=ExtResource("2_jxql8")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-shape = SubResource("SphereShape3D_jyr4n")
+transform = Transform3D(0.4, 0, 0, 0, 0.79565, 0.0416586, 0, -0.0833173, 0.397825, -0.083774, 0.121384, -0.1678)
+shape = SubResource("BoxShape3D_v0g7f")
+
+[node name="paperiroska2" parent="Interactable" instance=ExtResource("6_1kd18")]
+transform = Transform3D(8, 0, 0, 0, 12, 0, 0, 0, 8, 0, -0.2342, 0)
 
 [node name="Node3D" type="Node3D" parent="."]
 
