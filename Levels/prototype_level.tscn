@@ -1,9 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://c7d7f8was1kk0"]
+[gd_scene load_steps=16 format=3 uid="uid://c7d7f8was1kk0"]
 
 [ext_resource type="Material" uid="uid://ddebbbmi6u8h3" path="res://Assets/Visual/Hexaglow/Material/hexaglow.material" id="1_gm257"]
 [ext_resource type="PackedScene" uid="uid://diosy1b64h0mh" path="res://GameObjects/Player/VR/vr_player.tscn" id="3_02bmt"]
 [ext_resource type="Script" path="res://GameObjects/Classes/interactable.gd" id="3_e15np"]
 [ext_resource type="PackedScene" uid="uid://x23evg82rioy" path="res://GameObjects/Player/First-person/first_person_player.tscn" id="4_ip00u"]
+[ext_resource type="PackedScene" uid="uid://c10kd4m2lvcwx" path="res://GameObjects/events/eventtrigger.tscn" id="5_accf6"]
+[ext_resource type="AudioStream" uid="uid://d01hkknfvwvw8" path="res://Assets/Audio/Sfx/y2mate.com - MEDIC GAMING.mp3" id="7_ik5ur"]
+[ext_resource type="Script" path="res://GameObjects/AudioManager/DaManager.gd" id="7_r2lmg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m62ay"]
 albedo_color = Color(0, 0, 0, 1)
@@ -22,12 +25,15 @@ sky = SubResource("Sky_ma4fx")
 friction = 0.3
 bounce = 0.3
 
-[sub_resource type="PrismMesh" id="PrismMesh_yt0pd"]
-
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jvvuw"]
 points = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
-[node name="PrototypeLevel" type="Node3D"]
+[sub_resource type="PrismMesh" id="PrismMesh_yt0pd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pllb1"]
+size = Vector3(3, 5.1987, 3)
+
+[node name="PrototypeLevel2" type="Node3D"]
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 use_collision = true
@@ -59,15 +65,36 @@ mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_vj6nc")
 script = ExtResource("3_e15np")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Interactable"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
-mesh = SubResource("PrismMesh_yt0pd")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_jvvuw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interactable"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+mesh = SubResource("PrismMesh_yt0pd")
 
 [node name="VRPlayer" parent="." instance=ExtResource("3_02bmt")]
 
 [node name="First-person-Player" parent="." instance=ExtResource("4_ip00u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.98518, 8.73391)
+
+[node name="Area3D" parent="." instance=ExtResource("5_accf6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_pllb1")
+
+[node name="Area3D2" parent="." instance=ExtResource("5_accf6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, -9.44013)
+audio_sample = ExtResource("7_ik5ur")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
+shape = SubResource("BoxShape3D_pllb1")
+
+[node name="DaManager" type="Node" parent="."]
+script = ExtResource("7_r2lmg")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DaManager"]
+
+[connection signal="speak_to_manager" from="Area3D" to="DaManager" method="_on_area_3d_speak_to_manager"]
+[connection signal="speak_to_manager" from="Area3D2" to="DaManager" method="_on_area_3d_2_speak_to_manager"]

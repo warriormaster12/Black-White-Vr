@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cdsosmuhevbqp"
+path="res://.godot/imported/y2mate.com - Rick Astley Never Gonna Give You Up Official Music Video.mp3-50d0fdebad8c48b332166bbd4ffd5af6.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Music/y2mate.com - Rick Astley Never Gonna Give You Up Official Music Video.mp3"
+dest_files=["res://.godot/imported/y2mate.com - Rick Astley Never Gonna Give You Up Official Music Video.mp3-50d0fdebad8c48b332166bbd4ffd5af6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

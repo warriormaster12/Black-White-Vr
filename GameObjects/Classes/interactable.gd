@@ -9,6 +9,7 @@ func _ready():
 	for i_child in get_children():
 		if i_child is CollisionShape3D or CollisionPolygon3D:
 			collision = i_child
+			break
 
 
 func _interact(target:RayCast3D = null):

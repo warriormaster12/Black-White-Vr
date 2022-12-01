@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c10kd4m2lvcwx"]
+
+[ext_resource type="Script" path="res://GameObjects/events/eventtrigger.gd" id="1_o168n"]
+[ext_resource type="AudioStream" uid="uid://cdsosmuhevbqp" path="res://Assets/Audio/Music/y2mate.com - Rick Astley Never Gonna Give You Up Official Music Video.mp3" id="2_4g7to"]
+
+[node name="Area3D" type="Area3D"]
+script = ExtResource("1_o168n")
+audio_sample = ExtResource("2_4g7to")
