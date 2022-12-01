@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://347wnghmdb17"]
+
+[ext_resource type="PackedScene" uid="uid://hcvkqc1cc5f2" path="res://Assets/GLB files/Scene 1/roskapullo2.glb" id="1_hf2ca"]
+
+[node name="roskapullo2" instance=ExtResource("1_hf2ca")]
