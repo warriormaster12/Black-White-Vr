@@ -6,8 +6,8 @@ var collision:Node3D = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for i_child in get_children():
-		if i_child is CollisionShape3D or CollisionPolygon3D:
+	for i_child in self.get_children():
+		if i_child.is_class("CollisionShape3D") or i_child.is_class("CollisionPolygon3D"):
 			collision = i_child
 			break
 
@@ -35,3 +35,6 @@ func _interact_vr(target:XRController3D):
 	else:
 		freeze = false
 		collision.disabled = false
+
+
+

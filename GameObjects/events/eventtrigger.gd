@@ -13,12 +13,12 @@ func _ready():
 	area_entered.connect(on_area_entered)
 	
 func on_body_entered(body):
-	print(body.name)
+	pass
 	
 func on_area_entered(area):
 	print(area.get_owner().name)
 	if area.get_owner().name == "VRPlayer":
-		emit_signal("speak_to_manager",audio_sample)
+		emit_signal(speak_to_manager.get_name(),audio_sample)
 		if collision != null: 
 			collision.disabled = true
 		

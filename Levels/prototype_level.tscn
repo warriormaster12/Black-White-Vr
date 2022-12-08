@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c7d7f8was1kk0"]
+[gd_scene load_steps=20 format=3 uid="uid://c7d7f8was1kk0"]
 
 [ext_resource type="Material" uid="uid://ddebbbmi6u8h3" path="res://Assets/Visual/Hexaglow/Material/hexaglow.material" id="1_gm257"]
 [ext_resource type="PackedScene" uid="uid://diosy1b64h0mh" path="res://GameObjects/Player/VR/vr_player.tscn" id="3_02bmt"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://c10kd4m2lvcwx" path="res://GameObjects/events/eventtrigger.tscn" id="5_accf6"]
 [ext_resource type="AudioStream" uid="uid://d01hkknfvwvw8" path="res://Assets/Audio/Sfx/y2mate.com - MEDIC GAMING.mp3" id="7_ik5ur"]
 [ext_resource type="Script" path="res://GameObjects/AudioManager/DaManager.gd" id="7_r2lmg"]
+[ext_resource type="PackedScene" uid="uid://rx06td17eeak" path="res://GameObjects/events/roskis_counter.tscn" id="8_2ncat"]
+[ext_resource type="PackedScene" uid="uid://d1t6lqh6wevoe" path="res://GameObjects/events/trash_manager.tscn" id="9_ksflx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m62ay"]
 albedo_color = Color(0, 0, 0, 1)
@@ -32,6 +34,12 @@ points = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pllb1"]
 size = Vector3(3, 5.1987, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ejkma"]
+size = Vector3(2.28771, 3.40731, 2.25243)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3boc2"]
+size = Vector3(2.32524, 4.38726, 2.93091)
 
 [node name="PrototypeLevel2" type="Node3D"]
 
@@ -95,6 +103,20 @@ shape = SubResource("BoxShape3D_pllb1")
 script = ExtResource("7_r2lmg")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DaManager"]
+
+[node name="RoskisGood" parent="." instance=ExtResource("8_2ncat")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoskisGood"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85686, 0.159013)
+shape = SubResource("BoxShape3D_ejkma")
+
+[node name="RoskisBad" parent="." instance=ExtResource("8_2ncat")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoskisBad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.36855, 0.948221, 0)
+shape = SubResource("BoxShape3D_3boc2")
+
+[node name="TrashManager" parent="." instance=ExtResource("9_ksflx")]
 
 [connection signal="speak_to_manager" from="Area3D" to="DaManager" method="_on_area_3d_speak_to_manager"]
 [connection signal="speak_to_manager" from="Area3D2" to="DaManager" method="_on_area_3d_2_speak_to_manager"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://rx06td17eeak"]
+
+[ext_resource type="Script" path="res://GameObjects/events/roskis_counter.gd" id="1_7gpfa"]
+
+[node name="roskis_counter" type="Area3D"]
+script = ExtResource("1_7gpfa")

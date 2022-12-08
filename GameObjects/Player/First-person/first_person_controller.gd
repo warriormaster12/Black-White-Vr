@@ -36,6 +36,12 @@ func _input(event):
 			if interaction_ray.is_colliding() and interaction_ray.get_collider().is_in_group("interactable"):
 				toggle_interaction = true
 				interactable_target = interaction_ray.get_collider()
+	
+	if event.is_action_pressed("debug"):
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _process(delta):
 	if interactable_target != null:
