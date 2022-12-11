@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b67ffkhbd62m5"
+path="res://.godot/imported/you have interesting way to judge.mp3-21abf045f53c9a45a80e379374e74c3d.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Sfx/you have interesting way to judge.mp3"
+dest_files=["res://.godot/imported/you have interesting way to judge.mp3-21abf045f53c9a45a80e379374e74c3d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

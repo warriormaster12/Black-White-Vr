@@ -280,6 +280,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameInstance="*res://Singeltons/game_instance.gd"
+BackgroundMusic="*res://Singeltons/background_music.tscn"
 
 [display]
 

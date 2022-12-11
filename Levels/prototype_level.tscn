@@ -118,5 +118,5 @@ shape = SubResource("BoxShape3D_3boc2")
 
 [node name="TrashManager" parent="." instance=ExtResource("9_ksflx")]
 
-[connection signal="speak_to_manager" from="Area3D" to="DaManager" method="_on_area_3d_speak_to_manager"]
-[connection signal="speak_to_manager" from="Area3D2" to="DaManager" method="_on_area_3d_2_speak_to_manager"]
+[connection signal="speak_to_manager" from="Area3D" to="DaManager" method="_on_area_3d_speak_to_manager" flags=6]
+[connection signal="speak_to_manager" from="Area3D2" to="DaManager" method="_on_area_3d_speak_to_manager" flags=6]

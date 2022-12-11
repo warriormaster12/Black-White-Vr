@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dvplhufywvbss"
+path="res://.godot/imported/interesting decision.mp3-48f449d6c25592d183bbc7d02c2235e0.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Sfx/interesting decision.mp3"
+dest_files=["res://.godot/imported/interesting decision.mp3-48f449d6c25592d183bbc7d02c2235e0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

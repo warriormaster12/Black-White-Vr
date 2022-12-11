@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://cqxth8p51e3kh"]
+[gd_scene load_steps=17 format=3 uid="uid://cqxth8p51e3kh"]
 
+[ext_resource type="Script" path="res://GameObjects/Classes/interactable.gd" id="1_umy8j"]
 [ext_resource type="PackedScene" uid="uid://blp2x5itabbng" path="res://TCN Files/scene2/raha.tscn" id="2_c41tn"]
 [ext_resource type="PackedScene" uid="uid://76e65bujaxso" path="res://TCN Files/scene2/pullo.tscn" id="3_ahkyr"]
 [ext_resource type="PackedScene" uid="uid://8ge73625xttl" path="res://TCN Files/penkki.tscn" id="5_so15v"]
@@ -43,57 +44,59 @@ spot_range = 9.48262
 spot_angle = 36.3728
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( "Environment_732jt" )
+environment = SubResource("Environment_732jt")
 
-[node name="raha" type="Node" parent="." groups=["interactable"]]
+[node name="raha" type="RigidBody3D" parent="." groups=["interactable"]]
+script = ExtResource("1_umy8j")
 
-[node name="raha" parent="raha" instance=ExtResource( "2_c41tn" )]
+[node name="raha" parent="raha" instance=ExtResource("2_c41tn")]
 transform = Transform3D(0.00812731, -0.999494, 0.0307563, 0.990539, 0.0122606, 0.136685, -0.136993, 0.0293544, 0.990137, 5.21537, 1.11719, -1.77427)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="raha"]
 transform = Transform3D(0.945678, 0, -0.325106, 0, 1, 0, 0.325106, 0, 0.945678, 5.11391, 1.12554, -1.74766)
-shape = SubResource( "BoxShape3D_relmk" )
+shape = SubResource("BoxShape3D_relmk")
 
-[node name="pullo" type="Node" parent="." groups=["interactable"]]
+[node name="pullo" type="RigidBody3D" parent="." groups=["interactable"]]
+script = ExtResource("1_umy8j")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="pullo"]
 transform = Transform3D(0.374495, 0.0914554, -0.106722, -0.00294677, 0.308774, 0.254263, 0.140517, -0.237264, 0.28976, -0.0793889, 1.20428, -8.78499)
-shape = SubResource( "CapsuleShape3D_ch2k8" )
+shape = SubResource("CapsuleShape3D_ch2k8")
 
-[node name="pullo" parent="pullo" instance=ExtResource( "3_ahkyr" )]
+[node name="pullo" parent="pullo" instance=ExtResource("3_ahkyr")]
 transform = Transform3D(0.6, 0, 0, 0, 0.595943, -0.0696592, 0, 0.0696592, 0.595943, -0.0942626, 0.0840876, -9.45346)
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.1905)
 
-[node name="Penkki" parent="Node3D" instance=ExtResource( "5_so15v" )]
+[node name="Penkki" parent="Node3D" instance=ExtResource("5_so15v")]
 transform = Transform3D(-0.016667, 0, 0.999861, 0, 1, 0, -0.999861, 0, -0.016667, 4.64163, 0.699359, -3.37908)
 
-[node name="Roskis" parent="Node3D" instance=ExtResource( "7_6bxnw" )]
+[node name="Roskis" parent="Node3D" instance=ExtResource("7_6bxnw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.926694, 0.647475, -2.90409)
 
-[node name="heebo" parent="Node3D" instance=ExtResource( "7_55i1j" )]
+[node name="heebo" parent="Node3D" instance=ExtResource("7_55i1j")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.000354767, -11.4995)
 
-[node name="tolppa1" parent="Node3D" instance=ExtResource( "8_mb6wb" )]
+[node name="tolppa1" parent="Node3D" instance=ExtResource("8_mb6wb")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 3.42401, 0, -10.3526)
 
-[node name="tolppa2" parent="Node3D" instance=ExtResource( "8_mb6wb" )]
+[node name="tolppa2" parent="Node3D" instance=ExtResource("8_mb6wb")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 11.5604, 0, -10.3526)
 
-[node name="hattu" parent="Node3D" instance=ExtResource( "9_qoegx" )]
+[node name="hattu" parent="Node3D" instance=ExtResource("9_qoegx")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.863361, -0.278126, -9.80004)
 
-[node name="sora" parent="Node3D" instance=ExtResource( "8_e0s7l" )]
+[node name="sora" parent="Node3D" instance=ExtResource("8_e0s7l")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, -0.030142, -11.4151)
 
-[node name="tie" parent="Node3D" instance=ExtResource( "9_7cst1" )]
+[node name="tie" parent="Node3D" instance=ExtResource("9_7cst1")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, -11.4202)
 
-[node name="seinä" parent="Node3D" instance=ExtResource( "10_edmhx" )]
+[node name="seinä" parent="Node3D" instance=ExtResource("10_edmhx")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, -11.4514)
 
-[node name="First-person-Player" parent="." instance=ExtResource( "7_tn03s" )]
+[node name="First-person-Player" parent="." instance=ExtResource("7_tn03s")]
 transform = Transform3D(-0.999677, 0, 0.0254093, 0, 1, 0, -0.0254093, 0, -0.999677, 0, 1.64565, -2.874)
 
-[node name="VRPlayer" parent="." instance=ExtResource( "9_85yc2" )]
+[node name="VRPlayer" parent="." instance=ExtResource("9_85yc2")]

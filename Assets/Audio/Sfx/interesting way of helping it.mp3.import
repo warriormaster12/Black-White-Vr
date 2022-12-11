@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ccdgthlg2av5l"
+path="res://.godot/imported/interesting way of helping it.mp3-6e4e1f62e03dbd07258366c058737c1f.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Sfx/interesting way of helping it.mp3"
+dest_files=["res://.godot/imported/interesting way of helping it.mp3-6e4e1f62e03dbd07258366c058737c1f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

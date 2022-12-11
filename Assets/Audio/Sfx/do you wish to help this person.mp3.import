@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://wtkvc88eftuh"
+path="res://.godot/imported/do you wish to help this person.mp3-e92277d0023458dc3d0da47b0174fed6.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Sfx/do you wish to help this person.mp3"
+dest_files=["res://.godot/imported/do you wish to help this person.mp3-e92277d0023458dc3d0da47b0174fed6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

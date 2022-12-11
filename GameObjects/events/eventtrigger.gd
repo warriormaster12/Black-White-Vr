@@ -13,7 +13,10 @@ func _ready():
 	area_entered.connect(on_area_entered)
 	
 func on_body_entered(body):
-	pass
+	if body.name == "First-person-Player":
+		emit_signal(speak_to_manager.get_name(),audio_sample)
+		if collision != null: 
+			collision.disabled = true
 	
 func on_area_entered(area):
 	print(area.get_owner().name)

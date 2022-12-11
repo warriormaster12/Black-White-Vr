@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cs65ppsffky4i"]
+
+[ext_resource type="AudioStream" uid="uid://g2or3xtroxcv" path="res://Assets/Audio/Music/ville_seppanen-1_g.mp3" id="1_ien65"]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer"]
+stream = ExtResource("1_ien65")
+autoplay = true

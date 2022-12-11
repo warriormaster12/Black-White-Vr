@@ -23,5 +23,7 @@ func _on_area_3d_speak_to_manager(karen):
 	audio_queue.append(karen)
 
 
-func _on_area_3d_2_speak_to_manager(karen):
-	audio_queue.append(karen)
+
+func _on_level_play_audio(sample):
+	for i in sample:
+		audio_queue.append(i)
